@@ -25,9 +25,9 @@ class PlacesScraper < Kimurai::Base
   private
   def scraped_places(response)
     place = {}
-    place[:name] = response.css('h1.title')&.text&.squish
-    place[:description] = response.css('.description')&.text&.squish
-    place[:address] = response.css('.detailBox .baseInfo table.base1 td')
+    place[:name] = response.css('')&.text&.squish
+    place[:description] = response.css('')&.text&.squish
+    place[:address] = response.css('')
     save_to "scraped_places.json", place, format: :pretty_json, position: false
   end
 
